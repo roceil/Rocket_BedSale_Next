@@ -73,7 +73,7 @@ export function OrderForm() {
           </label>
           <div className='orderInfo-inputWrap'>
             <select id='tradeWay' className='orderInfo-input' name='交易方式'>
-              <option value='ATM' selected>
+              <option defaultValue='ATM'>
                 ATM
               </option>
               <option value='信用卡'>信用卡</option>
