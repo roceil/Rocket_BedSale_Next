@@ -3,7 +3,7 @@ import axios from 'axios'
 export const addToCart = async (productId: string) => {
   try {
     const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_PRODUCT_URL}carts`,
+      `https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/carts`,
       {
         data: {
           productId: productId,
@@ -22,7 +22,7 @@ export const addToCart = async (productId: string) => {
 export const deleteAll = async () => {
   try {
     const res = await axios.delete(
-      `${process.env.NEXT_PUBLIC_PRODUCT_URL}carts`
+      `https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/carts`
     )
     const { message } = await res.data
     const { status } = await res
@@ -36,7 +36,7 @@ export const deleteAll = async () => {
 export const deleteItem = async (id: string) => {
   try {
     const res = await axios.delete(
-      `${process.env.NEXT_PUBLIC_PRODUCT_URL}carts/${id}`
+      `https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/carts/${id}`
     )
     const { carts } = await res.data
     alert('刪除成功')

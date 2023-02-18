@@ -8,31 +8,33 @@ import { ProductList } from './components/ProductList'
 import { IHomeProps, CartsData, ProductData } from '@/types/interface'
 import { CartList } from './components/CartList'
 
-export const getStaticProps = async () => {
-  const productList = await fetch(
-    `${process.env.NEXT_PUBLIC_PRODUCT_URL}products` as unknown as string
-  )
-  const cartList = await fetch(
-    `${process.env.NEXT_PUBLIC_PRODUCT_URL}carts` as unknown as string
-  )
-  const productListData = await productList.json()
-  const cartListData = await cartList.json()
-  const { products } = await productListData
-  const { carts } = await cartListData
+// export const getStaticProps = async () => {
+//   const productList = await fetch(
+//     `https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/products` as unknown as string
+//   )
+//   const cartList = await fetch(
+//     `https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/carts` as unknown as string
+//   )
+//   const productListData = await productList.json()
+//   const cartListData = await cartList.json()
+//   const { products } = await productListData
+//   const { carts } = await cartListData
 
-  return {
-    props: {
-      products,
-      carts
-    }
-  }
-}
+//   return {
+//     props: {
+//       products,
+//       carts
+//     }
+//   }
+// }
 
 export default function Home({ products, carts }: IHomeProps) {
   const [shopCart, setShopCart] = useState<CartsData[]>(carts)
   const [allProduct,setAllProduct] = useState<ProductData[]>(products)
 
   const customLoader = ({ src }: { src: string }) => src
+
+  // JSX
   return (
     <>
       <Head>
@@ -41,8 +43,8 @@ export default function Home({ products, carts }: IHomeProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
-      <Banner customLoader={customLoader}></Banner>
-      <Carousel customLoader={customLoader}></Carousel>
+      {/* <Banner customLoader={customLoader}></Banner> */}
+      {/* <Carousel customLoader={customLoader}></Carousel>
       <Transport />
       <ProductList
         customLoader={customLoader}
@@ -55,7 +57,7 @@ export default function Home({ products, carts }: IHomeProps) {
         customLoader={customLoader}
         carts={shopCart}
         setShopCart={setShopCart}
-      ></CartList>
+      ></CartList> */}
 
       <OrderForm />
     </>
