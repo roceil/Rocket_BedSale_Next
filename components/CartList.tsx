@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { ICartListProps, DeleteAllMessage } from '@/types/interface'
-import { deleteAll, deleteItem } from '../api/APIs'
+import { deleteAll, deleteItem } from '../lib/APIs'
 
 
 

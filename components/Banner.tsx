@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import { IBannerProps } from '@/types/interface'
 
-
-
 export function Banner(props: IBannerProps) {
   return (
     <section className='wrap' id='bedAdvantage'>
@@ -17,37 +15,40 @@ export function Banner(props: IBannerProps) {
       <ul className='bedAdvantage'>
         <li>
           <Image
+            priority
             width={350}
             height={140}
             className='mb-2'
             src='https://i.imgur.com/tR426y5.png'
             alt='原木料環保'
             loader={props.customLoader}
-            unoptimized
+            unoptimized={true}
           />
           <p className='bedAdvantage-text'>原木料環保</p>
         </li>
         <li>
           <Image
+            priority
             width={350}
-            height={350}
+            height={140}
             loader={props.customLoader}
             className='mb-2'
             src='https://i.imgur.com/Fd2MiBb.png'
             alt='好收納'
-            unoptimized
+            unoptimized={true}
           />
           <p className='bedAdvantage-text'>好收納</p>
         </li>
         <li>
           <Image
+            priority
             width={350}
             height={140}
             loader={props.customLoader}
             className='mb-2'
             src='https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/5n1uTFh.png?raw=true'
             alt='好組裝'
-            unoptimized
+            unoptimized={true}
           />
           <p className='bedAdvantage-text'>好組裝</p>
         </li>

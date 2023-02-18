@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { IProductListProps, ProductData } from '@/types/interface'
-import { addToCart } from '../api/APIs'
+import { addToCart } from '../lib/APIs'
 
 export function ProductList({
   customLoader,
