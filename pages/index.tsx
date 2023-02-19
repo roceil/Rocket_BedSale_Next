@@ -5,8 +5,8 @@ import { Banner } from '../components/Banner'
 import { Transport } from '../components/Transport'
 import { OrderForm } from '../components/OrderForm'
 import { ProductList } from '../components/ProductList'
-import { IHomeProps, CartsData, ProductData } from '@/types/interface'
 import { CartList } from '../components/CartList'
+import { IHomeProps, CartsData, ProductData } from '@/types/interface'
 
 export const getStaticProps = async () => {
   const productList = await fetch(
