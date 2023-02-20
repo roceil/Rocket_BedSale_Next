@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { OrderLabel } from './OrderLabel'
 import { OrderSelection } from './OrderSelection'
+import { IOrderFormProps } from '@/types/interface'
+import { sendOrder } from '@/lib/APIs'
 
 const orderFormData = [
   {
@@ -29,17 +31,28 @@ const orderFormData = [
   }
 ]
 
-export function OrderForm() {
+export function OrderForm({ setShopCart }: IOrderFormProps) {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors }
   } = useForm({
     mode: 'onTouched'
   })
-  const onSubmit = (data: Object) => {
-    console.log('data', data)
+  const onSubmit = async (data: any) => {
+    const { name, phone, email, address, payWays } = data
+    const result = await sendOrder(name, phone, email, address, payWays)
+    if (result === 200) {
+      alert('訂單送出')
+      setShopCart([])
+      orderFormData.map((item) => {
+        setValue(item.labelTab, '')
+      })
+    }
   }
+
+  // JSX
   return (
     <section className='orderInfo wrap' id='orderInfo'>
       <h3 className='section-title'>填寫預訂資料</h3>

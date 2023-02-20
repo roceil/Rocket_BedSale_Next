@@ -45,3 +45,32 @@ export const deleteItem = async (id: string) => {
     console.log(error)
   }
 }
+
+export const sendOrder = async (
+  name: string,
+  phone: string,
+  email: string,
+  address: string,
+  payWays: string
+) => {
+  try {
+    const res = await axios.post(
+      'https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/orders',
+      {
+        data: {
+          user: {
+            name: name,
+            tel: phone,
+            email: email,
+            address: address,
+            payment: payWays
+          }
+        }
+      }
+    )
+    const { status } = await res
+    return status
+  } catch (error: any) {
+    console.log('error', error?.response?.data)
+  }
+}

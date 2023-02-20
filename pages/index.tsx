@@ -60,7 +60,7 @@ export default function Home({ products, carts }: IHomeProps) {
         setShopCart={setShopCart}
       />
 
-      <OrderForm />
+      <OrderForm setShopCart={setShopCart}/>
     </>
   )
 }

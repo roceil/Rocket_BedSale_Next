@@ -1,7 +1,6 @@
 import { type ImageLoader } from 'next/image'
-import { type } from 'os'
 import { type Dispatch, type SetStateAction } from 'react'
-import { UseFormRegister, FieldValues, FieldErrors } from 'react-hook-form'
+import { type UseFormRegister, type FieldValues,type FieldErrors } from 'react-hook-form'
 
 export type ProductData = {
   title: string
@@ -50,4 +49,8 @@ export interface IOrderLabelProps {
 
 export interface IOrderSelectionProps {
   register: UseFormRegister<FieldValues>
+}
+
+export interface IOrderFormProps {
+  setShopCart: Dispatch<SetStateAction<CartsData[]>>
 }
