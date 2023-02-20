@@ -19,7 +19,7 @@ export function CartList({ customLoader, carts, setShopCart }: ICartListProps) {
   return (
     <section className='py-12 bg-[#F8F8F8]'>
       <h3 className='text-[28px] font-bold text-center mb-8'>我的購物車</h3>
-      <table className='container table-auto' cellPadding={'10'}>
+      <table className='container max-w-[920px]' cellPadding={'10'}>
         <thead className='text-left '>
           <tr>
             <th className=''>品項</th>
