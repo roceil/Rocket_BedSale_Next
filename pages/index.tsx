@@ -8,7 +8,7 @@ import { ProductList } from '../components/ProductList'
 import { CartList } from '../components/CartList'
 import { IHomeProps, CartsData, ProductData } from '@/types/interface'
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const productList = await fetch(
     `https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/products`
   )
@@ -29,6 +29,7 @@ export const getStaticProps = async () => {
 }
 
 export default function Home({ products, carts }: IHomeProps) {
+  console.log("carts",carts)
   const [shopCart, setShopCart] = useState<CartsData[]>(carts)
   const [allProduct, setAllProduct] = useState<ProductData[]>(products)
 
