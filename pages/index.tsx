@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import Head from 'next/head'
 import { Carousel } from '../components/Carousel'
 import { Banner } from '../components/Banner'
@@ -10,11 +11,9 @@ import { IHomeProps, CartsData, ProductData } from '@/types/interface'
 
 export const getServerSideProps = async () => {
   const productList = await fetch(
-    `https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/products`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/products`
   )
-  const cartList = await fetch(
-    `https://livejs-api.hexschool.io/api/livejs/v1/customer/rocket-frank/carts`
-  )
+  const cartList = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/carts`)
   const productListData = await productList.json()
   const cartListData = await cartList.json()
   const { products } = await productListData
@@ -29,7 +28,6 @@ export const getServerSideProps = async () => {
 }
 
 export default function Home({ products, carts }: IHomeProps) {
-  console.log("carts",carts)
   const [shopCart, setShopCart] = useState<CartsData[]>(carts)
   const [allProduct, setAllProduct] = useState<ProductData[]>(products)
 
@@ -60,7 +58,7 @@ export default function Home({ products, carts }: IHomeProps) {
         setShopCart={setShopCart}
       />
 
-      <OrderForm setShopCart={setShopCart}/>
+      <OrderForm setShopCart={setShopCart} />
     </>
   )
 }
