@@ -9,7 +9,7 @@ import { ProductList } from '../components/ProductList'
 import { CartList } from '../components/CartList'
 import { IHomeProps, CartsData, ProductData } from '@/types/interface'
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const productList = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/products`
   )
